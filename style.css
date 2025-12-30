@@ -7,7 +7,7 @@
 }
 html {
   scroll-padding-top: 80px; /* גובה ה-Navbar */
-  scroll-behavior: smooth; /* בונוס: גלילה חלקה ונעימה */
+  scroll-behavior: smooth; /* גלילה חלקה ונעימה */
 }
 
 body {
@@ -46,6 +46,14 @@ h3 {
   padding: 0%;
   color: #36407a;
   font-size: 25px;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 00;
+  padding: 0%;
+  color: #b0b0b2;
+  font-size: 22px;
 }
 
 .container {
@@ -120,19 +128,6 @@ h3 {
   color: #36407a; /* A professional gold/brass accent color */
   margin: 0 5px;
 }
-
-/*
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-}
-.logo span {
-  color: #c5a059;
-}
-  */
 
 .nav-links {
   display: flex;
@@ -307,30 +302,6 @@ footer {
   margin: 5px;
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    left: 0px; /* התפריט יצא מצד שמאל במובייל */
-    height: 92vh;
-    top: 8vh;
-    background-color: #0a192f;
-    flex-direction: column;
-    align-items: center;
-    width: 70%;
-    transform: translateX(-100%);
-    transition: transform 0.5s ease-in;
-  }
-  .nav-active {
-    transform: translateX(0%);
-  }
-  .burger {
-    display: block;
-  }
-  .hero h1 {
-    font-size: 1.6rem;
-  }
-}
-
 /* עיצוב המבנה הדו-טורי */
 .content-wrapper {
   display: flex;
@@ -364,7 +335,9 @@ footer {
   flex: 0 0 300px; /* הוסף את זה: מקבע את רוחב אזור התמונות ל-300 פיקסלים */
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  padding: 15px;
+  margin-top: 10px;
+  gap: 20px;
 }
 
 .dynamic-img {
@@ -372,7 +345,7 @@ footer {
   max-width: 300px;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   border: 1px solid #eee;
 }
 
@@ -396,5 +369,29 @@ footer {
 @media (max-width: 480px) {
   .nav-menu {
     display: none; /* Hide horizontal menu for a hamburger menu */
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    left: 0px; /* התפריט יצא מצד שמאל במובייל */
+    height: 92vh;
+    top: 8vh;
+    background-color: #0a192f;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-active {
+    transform: translateX(0%);
+  }
+  .burger {
+    display: block;
+  }
+  .hero h1 {
+    font-size: 1.6rem;
   }
 }
