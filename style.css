@@ -334,15 +334,16 @@ footer {
 /* עיצוב המבנה הדו-טורי */
 .content-wrapper {
   display: flex;
-  flex-direction: row-reverse; /* טקסט מימין, תמונות משמאל */
+  flex-direction: row-reverse;
   gap: 30px;
   align-items: flex-start;
   margin-top: 20px;
+  width: 100%;
+  text-align: right;
 }
 
 .content-text {
   flex: 2;
-  /*text-align: right;*/
   text-align: justify; /* יישור לשני הצדדים */
   text-justify: inter-word; /* פיזור רווחים חכם בין מילים למניעת "חורים" */
   line-height: 1.8; /* ריווח שורות שמאוד עוזר לקריאות בטקסט מיושר */
@@ -360,7 +361,7 @@ footer {
 }
 
 .content-side-images {
-  flex: 1;
+  flex: 0 0 300px; /* הוסף את זה: מקבע את רוחב אזור התמונות ל-300 פיקסלים */
   display: flex;
   flex-direction: column;
   gap: 15px;

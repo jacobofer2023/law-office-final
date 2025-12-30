@@ -26,7 +26,7 @@ async function updateContent(sectionId) {
                     imagesHtml += `
                         <img src="${imgData.url}" 
                              alt="${imgData.alt}"
-                             title="${imgData.alt}"  // שורה זו גורמת לטקסט להופיע בריחוף עכבר 
+                             title="${imgData.alt}"
                              class="dynamic-img" 
                              onerror="this.style.display='none'">`;
                 });
