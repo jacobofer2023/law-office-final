@@ -85,6 +85,7 @@ body {
 /* כותרות וטקסט */
 h1 {
   color: #c5a059;
+  padding-bottom: 15px;
 }
 h2 {
   color: #c5a059;
@@ -367,9 +368,6 @@ textarea {
 
   .logo-image {
     height: 300px;
-  }
-  h2 {
-    font-size: 32px;
   }
 
   .content-wrapper {
