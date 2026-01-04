@@ -102,13 +102,14 @@ p {
 /* סרגל ניווט */
 .navbar {
   text-align: right;
-  background-color: rgba(10, 25, 47, 0.7);
+  font-size: 28px;
+  background-color: rgba(10, 25, 47, 0.4);
   color: #fff;
   position: fixed;
   width: 100%;
   z-index: 1000;
-  font-weight: bold;
-  font-size: larger;
+  font-weight: 400;
+  font-size: large;
 }
 
 .navbar .container {
@@ -116,23 +117,37 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 90%; /* תמיד רחב בניווט */
+  height: 60px;
 }
 
+/*עיצוב חדש ללוגו*/
 .logo {
-  font-family: "Times New Roman", serif;
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #c5a059;
+  /* טעינת פונט עם משקל כבד יותר */
+  font-family: "Montserrat", sans-serif;
   text-decoration: none;
+  font-size: 32px; /* הגדלתי מעט את הגודל */
+  letter-spacing: 2px; /* ריווח מהודק יותר שנותן תחושת עוצמה */
+  color: #ffffff; /* לבן בוהק */
+  font-weight: 500; /* שינוי מ-300 ל-600 (Semi-Bold) למראה עבה ובולט */
+  text-transform: uppercase;
+  display: inline-block;
 }
 
-.logo span {
-  font-size: 30px;
-  color: #f9f5f0;
-  margin: 0 5px;
+/* אפקט מעבר עכבר עדין */
+.logo:hover {
+  color: #e0e0e0;
+  transition: 0.3s;
 }
+
+.logo_span {
+  font-size: 40px;
+  color: #ff1f25; /* אדום חזק ורווי יותר */
+  font-weight: 600; /* ה-& יהיה הכי עבה בלוֹגוֹ כדי לשבור את הרצף */
+  margin: 0 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* צל עדין מאוד שמוסיף עומק */
+}
+
+/*סוף הוספת עיצוב ללוגו*/
 
 .nav-links {
   display: flex;
@@ -293,7 +308,7 @@ textarea {
 @media (max-width: 768px) {
   /* תפריט המבורגר */
   .nav-links {
-    font-weight: bold;
+    font-weight: 400px;
     position: fixed;
     right: 0;
     top: 0;
