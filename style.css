@@ -17,6 +17,14 @@ body {
   overflow-x: hidden; /* מונע גלילה לצדדים בנייד */
 }
 
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit; /* גורם לכפתור לרשת את הגופן של האתר */
+}
+
 .main-header {
   position: relative;
   height: 60vh; /* גובה ההדר */
@@ -189,12 +197,13 @@ p {
 
 /* כפתורים */
 .btn-primary {
-  background-color: #36407a;
+  background-color: rgba(24, 33, 81, 0.531);
   color: #fff;
   padding: 0.7rem 2.5rem;
   text-decoration: none;
   display: inline-block;
   margin: 1rem 0;
+  border: none;
   border-radius: 15px;
   font-size: 20px;
   font-weight: bold;
@@ -202,7 +211,13 @@ p {
 }
 
 .btn-primary:hover {
+  background-color: rgba(24, 33, 81, 0.931);
   color: #c5a059;
+}
+
+body .btn-primary:hover {
+  background-color: rgba(39, 37, 144, 0.931) !important;
+  color: #c5a059 !important;
 }
 
 /* שירותים */
@@ -316,7 +331,7 @@ textarea {
     top: 0;
     height: 100vh;
     width: 70%;
-    background-color: #0a192f;
+    background-color: rgba(71, 81, 138, 0.93);
     display: flex;
     flex-direction: column;
 
@@ -357,9 +372,9 @@ textarea {
   .nav-links li a {
     display: block; /* הופך את כל השטח ללחיץ */
     padding: 15px 20px; /* רווח פנימי בתוך הכפתור */
-    background-color: rgba(255, 255, 255, 0.05); /* רקע שקוף למחצה */
-    border: 1px solid rgba(197, 160, 89, 0.3); /* מסגרת דקה בצבע זהב/לוגו */
-    border-radius: 8px; /* פינות מעוגלות */
+    background-color: rgba(9, 15, 94, 0.548); /* רקע שקוף למחצה */
+    border: 1px solid rgba(227, 194, 133, 0.3); /* מסגרת דקה בצבע זהב/לוגו */
+    border-radius: 10px; /* פינות מעוגלות */
     color: #fff;
     text-decoration: none;
     text-align: right;
