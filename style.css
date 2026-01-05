@@ -212,6 +212,7 @@ p {
 
 .btn-primary:hover {
   background-color: rgba(24, 33, 81, 0.931);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   color: #c5a059;
 }
 
