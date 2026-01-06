@@ -69,26 +69,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // מאזין ללחיצות על לינקים וכרטיסי שירות
+  // מאזין ללחיצות כללי
   document.addEventListener("click", (event) => {
-    let link = event.target.closest("a[data-section]");
+    // 1. בדיקה אם נלחץ קישור JSON (עם data-section)
+    let sectionLink = event.target.closest("a[data-section]");
 
-    if (!link) {
+    // בדיקה עבור כרטיסי שירות
+    if (!sectionLink) {
       const card = event.target.closest(".service-card");
       if (card) {
-        link = card.querySelector("a[data-section]");
+        sectionLink = card.querySelector("a[data-section]");
       }
     }
 
-    if (link) {
+    // אם זה קישור JSON - בצע טעינה
+    if (sectionLink) {
       event.preventDefault();
-      const section = link.getAttribute("data-section");
+      const section = sectionLink.getAttribute("data-section");
       updateContent(section);
+    }
 
-      if (navLinks && navLinks.classList.contains("nav-active")) {
-        navLinks.classList.remove("nav-active");
-        if (burger) burger.classList.remove("toggle");
-      }
+    // 2. טיפול בסגירת התפריט במובייל (לכל סוגי הקישורים ב-Navbar)
+    // נבדוק אם הלחיצה הייתה על קישור כלשהו בתוך ה-navLinks
+    const anyNavLink = event.target.closest("#navLinks a");
+
+    if (anyNavLink && navLinks.classList.contains("nav-active")) {
+      navLinks.classList.remove("nav-active");
+      if (burger) burger.classList.remove("toggle");
     }
   });
 });
