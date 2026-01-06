@@ -3,8 +3,12 @@
     "title": "אודות המשרד",
     "images": [
       {
+        "url": "images/office-uziel-1-ramat-gan.jpg",
+        "alt": "צילום חזית הבניין מרחוב עוזיאל רמת גן"
+      },
+      {
         "url": "images/law_office.jpg",
-        "alt": "משרד עורכי הדין טואף קלפה"
+        "alt": "תמונת הדמייה של משרד עורכי דין"
       }
     ],
     "content": [
