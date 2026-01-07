@@ -317,6 +317,7 @@ body .btn-primary:hover {
   gap: 30px;
   align-items: flex-start;
   text-align: justify;
+  padding: 10px;
 }
 
 .content-text {
