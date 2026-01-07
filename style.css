@@ -55,12 +55,36 @@ button {
   z-index: 0;
 }
 
-.header-text {
-  z-index: 1;
-  text-align: center;
-  font-size: larger;
+.header-office {
+  font-family: "Quicksand", sans-serif;
+  font-size: 30px;
   color: #dab776;
+  z-index: 1;
 }
+
+/*עיצוב אנימציה ב-header*/
+.animated-text-container {
+  display: flex; /* כדי למרכז את הטקסט */
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* גובה לקונטיינר של הטקסט, שנה לפי הצורך */
+  background-color: #f8f8f8; /* צבע רקע לדוגמה, שנה בהתאם לאתר שלך */
+}
+
+.animated-text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* פונט נעים */
+  font-size: 3em; /* גודל טקסט, שנה לפי הצורך */
+  color: #333; /* צבע ברירת מחדל לטקסט */
+  white-space: nowrap; /* מונע שבירת שורה */
+  overflow: hidden; /* חותך את הטקסט לפני שהוא "נקלד" */
+  border-right: 0.15em solid #004477; /* סמן ההקלדה */
+  width: 0; /* מתחיל מרוחב 0 */
+  animation: typing 3.5s steps(26, end) forwards,
+    /* אנימציית הקלדה */ blink-caret 0.75s step-end infinite; /* אנימציית הבהוב */
+  animation-delay: 1s; /* השהייה לפני שהאנימציה מתחילה */
+}
+
+/*סיום אנימציה ב-header*/
 
 /* הגדרות תבניות - תיקון רספונסיבי */
 .container,
@@ -321,6 +345,7 @@ textarea {
   color: white;
   padding: 0.5rem 0;
   text-align: center;
+  line-height: 0.5; /* רווח סטנדרטי יחסית צפוף */
 }
 
 /* --- התאמה למובייל (Media Queries) --- */
