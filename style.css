@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  line-height: 1.6;
+  line-height: 1.4;
   color: #333333;
   text-align: right;
   overflow-x: hidden; /* מונע גלילה לצדדים בנייד */
@@ -321,7 +321,7 @@ body .btn-primary:hover {
 
 .content-text {
   flex: 2;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 .content-side-images {
   flex: 0 0 300px;
