@@ -87,8 +87,15 @@ button {
 /*סיום אנימציה ב-header*/
 
 /* הגדרות תבניות - תיקון רספונסיבי */
-.container,
 .container2 {
+  width: 60%; /* רוחב למחשב */
+  margin: auto;
+  padding: 0;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.container {
   width: 60%; /* רוחב למחשב */
   margin: auto;
   padding: 20px;
@@ -117,7 +124,8 @@ button {
 /* כותרות וטקסט */
 h1 {
   color: #c5a059;
-  padding-bottom: 15px;
+  padding: 0;
+  margin: 0;
 }
 h2 {
   color: #c5a059;
@@ -125,8 +133,8 @@ h2 {
 }
 h3 {
   color: #36407a;
-  font-size: 25px;
-  margin-bottom: 20px;
+  font-size: 22px;
+  margin: 0;
 }
 p {
   text-align: justify;
