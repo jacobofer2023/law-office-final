@@ -314,10 +314,10 @@ body .btn-primary:hover {
 .content-wrapper {
   display: flex;
   flex-direction: row-reverse;
-  gap: 30px;
   align-items: flex-start;
   text-align: justify;
   padding: 20px;
+  gap: 30px;
 }
 
 .content-text {
