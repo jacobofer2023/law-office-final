@@ -1203,7 +1203,7 @@ const DEFAULT_WIDGET_CONFIG = {
     borderRadius: '8px',
     fontSize: '16px',
     titleFontSize: '16px',
-    closeButtonSize: '44px'
+    closeButtonSize: '30px'
   },
 
   // Typography
