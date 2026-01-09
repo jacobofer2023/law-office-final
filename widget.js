@@ -1169,9 +1169,9 @@ const DEFAULT_WIDGET_CONFIG = {
   enableColorFilter: true,
 
   // Widget Styling
-  widgetWidth: '440px',
+  widgetWidth: '350px',
   widgetPosition: {
-    side: 'right', // 'left' or 'right'
+    side: 'left', // 'left' or 'right'
     right: '20px',
     left: '20px',
     bottom: '20px'
