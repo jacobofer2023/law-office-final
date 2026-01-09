@@ -27,7 +27,7 @@ body {
 
 .phone-icon {
   width: 40px; /* רוחב התמונה */
-  height: auto; /* שומר על פרופורציות */
+  height: 40; /* שומר על פרופורציות */
   vertical-align: middle; /* מיישר את האייקון לאמצע גובה הטקסט */
   margin-left: 8px; /* ריווח בין האייקון למילה "טלפון" */
 }
