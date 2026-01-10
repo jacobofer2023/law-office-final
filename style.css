@@ -86,7 +86,7 @@ p {
 
 /* --- 4. סרגל ניווט (Navbar) --- */
 .navbar {
-  background-color: rgba(10, 25, 47, 0.4);
+  background-color: rgba(41, 69, 110, 0.6);
   color: #fff;
   position: fixed;
   width: 100%;
@@ -350,17 +350,20 @@ footer,
     position: fixed;
     right: 0;
     top: 0;
-    height: auto;
-    max-height: 80vh;
+    /* הגדרת גובה חכמה */
+    height: 100vh;
+    height: 100dvh;
     width: 250px;
     background-color: rgba(71, 81, 138, 0.93);
     flex-direction: column;
-    padding: 60px 20px 20px;
+    padding: 80px 20px 20px; /* הגדלתי מעט את ה-padding העליון כדי שלא יסתיר את ה-X או הלוגו */
     gap: 10px;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
     border-bottom-left-radius: 20px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.2);
+    /* מאפשר גלילה בתוך התפריט אם הוא ארוך מדי */
+    overflow-y: auto;
   }
   .nav-active {
     transform: translateX(0%) !important;
