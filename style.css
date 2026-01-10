@@ -155,9 +155,17 @@ h2 {
   font-size: 50px;
 }
 h3 {
+  color: #cb0808;
+  font-size: 16px;
+  font-weight: normal;
+  margin: 0;
+}
+h4 {
   color: #36407a;
   font-size: 22px;
+  font-weight: bold;
   margin: 0;
+  margin-bottom: 10px;
 }
 p {
   text-align: justify;
@@ -311,7 +319,7 @@ body .btn-primary:hover {
 .service-card a {
   color: #c5a059;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: normal;
   display: inline-block;
   margin-top: 10px;
   position: relative;

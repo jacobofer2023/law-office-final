@@ -33,9 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             <img src="${imgData.url}" 
                                  alt="${imgData.alt}"
                                  title="${imgData.alt}"
+                                 width="${imgData.width || 300}"
+                                 height="${imgData.height || 300}"
+                                 loading="lazy" 
                                  class="dynamic-img" 
                                  onerror="this.style.display='none'">`;
           });
+
           imagesHtml += "</div>";
         }
 
