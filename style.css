@@ -23,7 +23,7 @@ body {
 .container2 {
   width: 60%;
   margin: auto;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   transition: 0.3s;
 }
@@ -50,7 +50,7 @@ h2 {
 h3 {
   color: #36407a;
   font-size: 17px;
-  font-weight: 500;
+  font-weight: 600;
   margin: 0;
 }
 h4 {
@@ -224,7 +224,8 @@ p {
   position: relative;
   background: #fff;
   padding: 2rem;
-  border-right: 5px solid #737282;
+  border-right: 5px solid #36407a;
+  border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
   line-height: 1.4;
