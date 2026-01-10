@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // 1. עדכון הכותרת
         document.getElementById("content-title").innerText = sectionData.title;
 
-        // 2. עיבוד תוכן הפסקאות - שימוש ב-innerHTML כדי לשמר את העיצוב מה-JSON
+        // 2. עיבוד תוכן הפסקאות
         const contentHtml = sectionData.content
           .map(
             (text) =>
@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                  class="dynamic-img" 
                                  onerror="this.style.display='none'">`;
           });
-
           imagesHtml += "</div>";
         }
 
@@ -51,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 `;
 
-        // 5. גלילה חלקה (רק אם זו לחיצה אקטיבית ולא טעינת דף ראשונה)
+        // 5. גלילה חלקה
         const displayElement = document.getElementById("content-display");
         if (displayElement && sectionId !== "about") {
           displayElement.scrollIntoView({ behavior: "smooth" });
@@ -62,42 +61,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // --- קריאה ראשונית: טעינת תוכן ה"אודות" מיד עם פתיחת האתר ---
+  // טעינה ראשונית
   updateContent("about");
 
-  // ניהול תפריט המבורגר (הקוד המקורי שלך)
+  // --- ניהול תפריט המבורגר (פתיחה/סגירה בלחיצה על האייקון) ---
   if (burger) {
-    burger.addEventListener("click", () => {
+    burger.addEventListener("click", (e) => {
+      e.stopPropagation(); // מונע מהלחיצה על ההמבורגר להיחשב כלחיצה "מחוץ לתפריט"
       navLinks.classList.toggle("nav-active");
       burger.classList.toggle("toggle");
     });
   }
 
-  // מאזין ללחיצות כללי
+  // --- מאזין לחיצות גלובלי (לקישורים וסגירת תפריט) ---
   document.addEventListener("click", (event) => {
-    // 1. בדיקה אם נלחץ קישור JSON (עם data-section)
-    let sectionLink = event.target.closest("a[data-section]");
 
-    // בדיקה עבור כרטיסי שירות
+    // א. זיהוי אם נלחץ קישור לתוכן (data-section)
+    let sectionLink = event.target.closest("a[data-section]");
     if (!sectionLink) {
       const card = event.target.closest(".service-card");
-      if (card) {
-        sectionLink = card.querySelector("a[data-section]");
+      if (card) sectionLink = card.querySelector("a[data-section]");
+    }
+
+    if (sectionLink) {
+      const section = sectionLink.getAttribute("data-section");
+      updateContent(section);
+      // אם הקישור הוא רק לעדכון תוכן ולא גלילה, אפשר למנוע דיפולט
+      if (sectionLink.getAttribute("href") === "#") {
+        event.preventDefault();
       }
     }
 
-    // אם זה קישור JSON - בצע טעינה
-    if (sectionLink) {
-      event.preventDefault();
-      const section = sectionLink.getAttribute("data-section");
-      updateContent(section);
-    }
+    // ב. סגירת התפריט במובייל
+    const isNavLink = event.target.closest("#navLinks a");
+    const isInsideMenu = event.target.closest("#navLinks");
+    const menuIsOpen = navLinks.classList.contains("nav-active");
 
-    // 2. טיפול בסגירת התפריט במובייל (לכל סוגי הקישורים ב-Navbar)
-    // נבדוק אם הלחיצה הייתה על קישור כלשהו בתוך ה-navLinks
-    const anyNavLink = event.target.closest("#navLinks a");
-
-    if (anyNavLink && navLinks.classList.contains("nav-active")) {
+    // סגור אם: לחצו על קישור בתפריט או לחצו מחוץ לתפריט (ולא על ההמבורגר)
+    if (menuIsOpen && (isNavLink || !isInsideMenu)) {
       navLinks.classList.remove("nav-active");
       if (burger) burger.classList.remove("toggle");
     }
