@@ -275,6 +275,12 @@ p {
 }
 .dynamic-img {
   width: 100%;
+  /* הוסף את השורות הבאות */
+  aspect-ratio: 1 / 1; /* כופה יחס של ריבוע */
+  object-fit: cover; /* חותך את שולי התמונה כדי שלא תתכווץ */
+  object-position: center; /* מוודא שהחיתוך מתבצע מהמרכז */
+
+  /* העיצוב הקיים שלך */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
