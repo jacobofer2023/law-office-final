@@ -309,14 +309,14 @@ footer,
   right: 30px;
   opacity: 0;
   bottom: -50px;
-  padding: 24px;
+  padding: 20px;
   animation: fade-up 1000ms forwards;
   animation-delay: 1000ms;
 }
 
 @keyframes fade-up {
   100% {
-    bottom: 24px;
+    bottom: 20px;
     opacity: 1;
   }
 }
