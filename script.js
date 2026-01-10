@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             <img src="${imgData.url}" 
                                  alt="${imgData.alt}"
                                  title="${imgData.alt}"
-                                 width="${imgData.width || 300}"
-                                 height="${imgData.height || 300}"
+                                 width="300"
+                                 style="height: auto; aspect-ratio: 1/1;"
                                  loading="lazy" 
                                  class="dynamic-img" 
                                  onerror="this.style.display='none'">`;
