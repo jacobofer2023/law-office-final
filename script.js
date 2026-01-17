@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. נשתמש באותו שם מפתח בדיוק בשני המקומות (למשל TEST)
+  const POPUP_KEY = "popupShown_TEST";
+  // 2. מחיקת המפתח בכל טעינה (למטרת בדיקות בלבד!)
+  localStorage.removeItem(POPUP_KEY);
+
   const burger = document.getElementById("burger");
   const navLinks = document.getElementById("navLinks");
   const popupOverlay = document.getElementById("popupOverlay");
@@ -86,14 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- הפעלה אוטומטית (עם איפוס זיכרון לבדיקה) ---
   // שיניתי ל-popupShown_DEBUG כדי שזה יפתח לך בטוח עכשיו
-  const hasSeenPopup = localStorage.getItem("popupShown_DEBUG");
+  const hasSeenPopup = localStorage.getItem(POPUP_KEY);
 
   // אם אתה רוצה שהפופאפ יופיע תמיד בזמן העבודה, פשוט מחק את ה-IF
   if (!hasSeenPopup) {
-    console.log("Popup timer started...");
     setTimeout(() => {
       openPopup();
-      localStorage.setItem("popupShown_DEBUG", new Date().getTime());
-    }, 2000); // 2 שניות כדי שלא תצטרך לחכות הרבה
+      localStorage.setItem(POPUP_KEY, "true");
+      console.log("Popup opened and key saved.");
+    }, 5000); // 2 שניות כדי שלא תצטרך לחכות הרבה
   }
 });
