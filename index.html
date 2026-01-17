@@ -17,6 +17,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="popup.css" />
   <script src="script.js" defer></script>
   <script src="widget.js" defer></script>
 </head>
@@ -163,6 +164,44 @@
     <p class="footer">טואף - קלפה ושות' - משרד עורכי דין ונוטריונים</p>
     <p class="footer">&copy כל הזכויות שמורות</p>
   </footer>
+  <!--הוספת קוד ה-overlay-->
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup-container">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <div class="header">
+        <h1>טואף - קלפה, משרד עורכי-דין</h1>
+        <h2>TOAFF-KALFA</h2>
+        <h3>Law Office & Notary</h3>
+      </div>
+
+      <div class="title">
+        <h1>נפגעת מתאונת דרכים?</h1>
+      </div>
+      <div class="list">
+        <ul class="square-list">
+          <li>האם התאונה היא תאונת עבודה?</li>
+          <li>האם הובהלת לבי"ח באמבולנס?</li>
+          <li>האם אושפזת בבי"ח?</li>
+        </ul>
+      </div>
+      <div class="imp">
+        <h1>כל פרט חשוב!</h1>
+      </div>
+      <div class="contact-title">
+        <h1>השאר פרטים ונחזור אליך</h1>
+      </div>
+      <div class="contact-us">
+        <form id="popup-form" action="https://formspree.io/f/xgoenqdd" method="POST">
+          <input type="text" name="name" placeholder="שם מלא" required />
+          <input type="email" name="email" placeholder="כתובת אימייל" required />
+          <textarea name="message" placeholder="תאר בקצרה את המקרה שלך" rows="5"></textarea>
+          <button type="submit" class="btn">שלח</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--סיום קוד ה-overlay-->
+
   <script>
     // מבטיח שהדף ייפתח בראש העמוד בכל טעינה
     window.onload = function () {

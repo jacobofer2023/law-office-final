@@ -1,106 +1,99 @@
 document.addEventListener("DOMContentLoaded", () => {
   const burger = document.getElementById("burger");
   const navLinks = document.getElementById("navLinks");
+  const popupOverlay = document.getElementById("popupOverlay");
 
+  // --- לוגיקת תוכן דינמי (ללא שינוי) ---
   async function updateContent(sectionId) {
     if (!sectionId) return;
-
     try {
       const response = await fetch("data.json");
       if (!response.ok) throw new Error("קובץ הנתונים לא נמצא");
-
       const data = await response.json();
       const sectionData = data[sectionId];
-
       if (sectionData) {
-        // 1. עדכון הכותרת
         document.getElementById("content-title").innerText = sectionData.title;
-
-        // 2. עיבוד תוכן הפסקאות
         const contentHtml = sectionData.content
-          .map(
-            (text) =>
-              `<div class="content-paragraph" style="margin-bottom: 15px;">${text}</div>`
-          )
+          .map(text => `<div class="content-paragraph" style="margin-bottom: 15px;">${text}</div>`)
           .join("");
 
-        // 3. טיפול בתמונות
         let imagesHtml = "";
         if (sectionData.images && sectionData.images.length > 0) {
           imagesHtml = '<div class="content-side-images">';
           sectionData.images.forEach((imgData) => {
-            imagesHtml += `
-                            <img src="${imgData.url}" 
-                                 alt="${imgData.alt}"
-                                 title="${imgData.alt}"
-                                 width="300"
-                                 style="height: auto; aspect-ratio: 1/1;"
-                                 loading="lazy" 
-                                 class="dynamic-img" 
-                                 onerror="this.style.display='none'">`;
+            imagesHtml += `<img src="${imgData.url}" alt="${imgData.alt}" title="${imgData.alt}" width="300" style="height: auto; aspect-ratio: 1/1;" loading="lazy" class="dynamic-img" onerror="this.style.display='none'">`;
           });
           imagesHtml += "</div>";
         }
-
-        // 4. הזרקה לתוך ה-HTML
-        document.getElementById("content-body").innerHTML = `
-                    <div class="content-wrapper">
-                        <div class="content-text">${contentHtml}</div>
-                        ${imagesHtml}
-                    </div>
-                `;
-
-        // 5. גלילה חלקה
+        document.getElementById("content-body").innerHTML = `<div class="content-wrapper"><div class="content-text">${contentHtml}</div>${imagesHtml}</div>`;
         const displayElement = document.getElementById("content-display");
         if (displayElement && sectionId !== "about") {
           displayElement.scrollIntoView({ behavior: "smooth" });
         }
       }
-    } catch (error) {
-      console.error("שגיאה בטעינת הנתונים:", error);
-    }
+    } catch (error) { console.error("שגיאה בטעינת הנתונים:", error); }
   }
-
-  // טעינה ראשונית
   updateContent("about");
 
-  // --- ניהול תפריט המבורגר (פתיחה/סגירה בלחיצה על האייקון) ---
+  // --- פונקציות פופאפ גלובליות ---
+  window.openPopup = function () {
+    if (popupOverlay) {
+      popupOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    } else {
+      console.error("Popup overlay not found in HTML!");
+    }
+  };
+
+  window.closePopup = function () {
+    if (popupOverlay) {
+      popupOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  };
+
+  // --- מאזיני לחיצות ---
   if (burger) {
     burger.addEventListener("click", (e) => {
-      e.stopPropagation(); // מונע מהלחיצה על ההמבורגר להיחשב כלחיצה "מחוץ לתפריט"
+      e.stopPropagation();
       navLinks.classList.toggle("nav-active");
       burger.classList.toggle("toggle");
     });
   }
 
-  // --- מאזין לחיצות גלובלי (לקישורים וסגירת תפריט) ---
   document.addEventListener("click", (event) => {
-
-    // א. זיהוי אם נלחץ קישור לתוכן (data-section)
-    let sectionLink = event.target.closest("a[data-section]");
-    if (!sectionLink) {
-      const card = event.target.closest(".service-card");
-      if (card) sectionLink = card.querySelector("a[data-section]");
-    }
-
-    if (sectionLink) {
-      const section = sectionLink.getAttribute("data-section");
-      updateContent(section);
-      // אם הקישור הוא רק לעדכון תוכן ולא גלילה, אפשר למנוע דיפולט
-      if (sectionLink.getAttribute("href") === "#") {
-        event.preventDefault();
+    // סגירת תפריט מובייל
+    if (navLinks.classList.contains("nav-active")) {
+      if (event.target.closest("#navLinks a") || !event.target.closest("#navLinks") && !event.target.closest("#burger")) {
+        navLinks.classList.remove("nav-active");
+        if (burger) burger.classList.remove("toggle");
       }
     }
 
-    // ב. סגירת התפריט במובייל
-    const isNavLink = event.target.closest("#navLinks a");
-    const isInsideMenu = event.target.closest("#navLinks");
-    const menuIsOpen = navLinks.classList.contains("nav-active");
+    // סגירת פופאפ בלחיצה על הרקע
+    if (popupOverlay && event.target === popupOverlay) {
+      closePopup();
+    }
 
-    // סגור אם: לחצו על קישור בתפריט או לחצו מחוץ לתפריט (ולא על ההמבורגר)
-    if (menuIsOpen && (isNavLink || !isInsideMenu)) {
-      navLinks.classList.remove("nav-active");
-      if (burger) burger.classList.remove("toggle");
+    // ניווט דינמי
+    let sectionLink = event.target.closest("a[data-section]");
+    if (sectionLink) {
+      const section = sectionLink.getAttribute("data-section");
+      updateContent(section);
+      if (sectionLink.getAttribute("href") === "#") event.preventDefault();
     }
   });
+
+  // --- הפעלה אוטומטית (עם איפוס זיכרון לבדיקה) ---
+  // שיניתי ל-popupShown_DEBUG כדי שזה יפתח לך בטוח עכשיו
+  const hasSeenPopup = localStorage.getItem("popupShown_DEBUG");
+
+  // אם אתה רוצה שהפופאפ יופיע תמיד בזמן העבודה, פשוט מחק את ה-IF
+  if (!hasSeenPopup) {
+    console.log("Popup timer started...");
+    setTimeout(() => {
+      openPopup();
+      localStorage.setItem("popupShown_DEBUG", new Date().getTime());
+    }, 2000); // 2 שניות כדי שלא תצטרך לחכות הרבה
+  }
 });
