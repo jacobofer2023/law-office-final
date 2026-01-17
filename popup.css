@@ -5,6 +5,8 @@
 /* --- 1. שכבת הרקע --- */
 .popup-overlay {
   position: fixed;
+  padding: 15px;
+  box-sizing: border-box;
   top: 0;
   left: 0;
   width: 100%;
@@ -17,7 +19,6 @@
   visibility: hidden;
   opacity: 0;
   transition: all 0.3s ease;
-  padding: 6px;
 }
 
 .popup-overlay.active {
@@ -31,9 +32,10 @@
   max-width: 420px; /* צר יותר למראה נקי */
   max-height: 90vh;
   overflow-y: auto; /* מוסיף גלילה פנימית אם התוכן ארוך מדי */
+  padding: 20px;
+  box-sizing: border-box;
   background: #ffffff;
   border-radius: 12px;
-  padding: 15px; /* פחות ריווח פנימי */
   position: relative;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   direction: rtl;
@@ -43,13 +45,13 @@
 /* --- 3. כפתור סגירה X --- */
 .close-btn {
   position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
+  right: 5px;
+  top: -15px;
+  font-size: 35px;
+  font-weight: bold;
   cursor: pointer;
-  color: #fff;
+  color: #333;
   z-index: 101;
-  line-height: 1;
 }
 
 .close-btn:hover {
@@ -61,7 +63,8 @@
   background: rgba(41, 69, 110, 0.6);
   border-radius: 10px;
   padding: 12px; /* מצומצם */
-  margin-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
@@ -134,7 +137,7 @@
 
 /* --- 6. טופס צור קשר קטן --- */
 .contact-us {
-  padding: 10px 20px;
+  padding: 20px 20px;
   background-color: rgba(41, 69, 110, 0.6);
   border-radius: 10px;
 }
@@ -147,7 +150,7 @@
 .contact-us textarea {
   width: 100%;
   padding: 5px; /* קטן יותר */
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
@@ -173,7 +176,8 @@
 /* --- התאמות ספציפיות למסכים קטנים מאוד --- */
 @media (max-width: 480px) {
   .popup-container {
-    padding: 0;
+    padding: 15px;
+    width: 100%;
   }
   .header h2 {
     font-size: 1.1rem;

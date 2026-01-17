@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.closePopup = function () {
     if (popupOverlay) {
       popupOverlay.classList.remove("active");
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = "";
     }
   };
 
