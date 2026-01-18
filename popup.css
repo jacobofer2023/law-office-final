@@ -81,7 +81,7 @@
 .title-1 {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #1d527c;
+  color: #c5a059;
   padding-top: 10px;
   margin: 0;
 }
@@ -89,6 +89,14 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: #1d527c;
+  margin-top: 5px;
+  margin: 0;
+}
+.title-3 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #c5a059;
   margin-top: 5px;
   margin: 0;
 }
@@ -185,14 +193,22 @@
     width: 100%;
   }
   .contact-title {
-    font-size: 0.8rem;
+    font-size: 1rem;
+  }
+  .contact-title h1 {
+    font-size: 1rem;
+    font-weight: 300;
   }
   .title-1 {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
     margin: 0;
   }
   .title-2 {
-    font-size: 0.8rem;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  .title-3 {
+    font-size: 1.3rem;
     margin: 0;
   }
   .list li::before {
@@ -200,6 +216,7 @@
   }
 
   .list li {
+    font-size: 1rem;
     padding-right: 0; /* אם היה רווח לצד הריבוע, כדאי לאפס אותו במובייל */
     list-style: none; /* מוודא שגם הנקודות המקוריות לא מופיעות */
   }
