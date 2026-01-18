@@ -187,7 +187,11 @@
   .contact-title {
     font-size: 1rem;
   }
-  .title h1 {
+  .title-1 {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .title-2 {
     font-size: 1rem;
     margin: 0;
   }
