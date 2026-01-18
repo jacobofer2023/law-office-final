@@ -34,7 +34,7 @@
   overflow-y: auto; /* מוסיף גלילה פנימית אם התוכן ארוך מדי */
   padding: 20px;
   box-sizing: border-box;
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
   position: relative;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
@@ -60,12 +60,25 @@
 
 /* --- 4. כותרת עליונה קומפקטית --- */
 .header {
-  background: rgba(41, 69, 110, 0.6);
-  border-radius: 10px;
-  padding: 12px; /* מצומצם */
+  /*background: rgba(41, 69, 110, 0.6);
+  border-radius: 10px;*/
   margin-top: 10px;
-  margin-bottom: 0px;
-  text-align: center;
+  margin-bottom: 4px;
+}
+
+.header img {
+  max-width: 100%;
+  height: auto; /* שומר על פרופורציות התמונה */
+  display: block; /* מבטל רווחים מיותרים בתחתית */
+}
+img {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  /* הסבר: 
+     0px - הזזה אופקית
+     4px - הזזה אנכית (למטה)
+     8px - רמת הטשטוש (Blur)
+     rgba - צבע שחור עם 20% שקיפות */
 }
 
 .header p {
@@ -123,6 +136,9 @@
 }
 
 .list li {
+  color: #1d527c;
+  font-size: 1.2rem;
+  font-weight: 400;
   position: relative;
   padding-right: 20px; /* יוצר מקום לריבוע בצד ימין */
   list-style: none;
@@ -151,9 +167,9 @@
 
 /* --- 6. טופס צור קשר קטן --- */
 .contact-us {
-  padding: 20px 20px;
-  background-color: rgba(41, 69, 110, 0.6);
-  border-radius: 10px;
+  padding: 10px;
+  background-color: rgba(150, 154, 161, 0.5);
+  border-radius: 15px;
 }
 
 .contact-title {
@@ -162,8 +178,10 @@
 
 .contact-us input,
 .contact-us textarea {
-  width: 100%;
-  padding: 5px; /* קטן יותר */
+  display: flex;
+  margin: auto;
+  width: 90%;
+  padding: 3px; /* קטן יותר */
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -172,10 +190,11 @@
 
 .btn {
   width: 100%;
-  height: 40px; /* נמוך יותר */
+  height: 45px; /* נמוך יותר */
   border-radius: 8px;
   background-color: #1d527c;
   color: #fff;
+  font-size: 1rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
