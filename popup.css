@@ -71,20 +71,18 @@
 .popup-header img {
   width: 100%;
   max-width: 100%;
-  display: block;
-  object-fit: cover;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  max-height: 100%;
+  height: block;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  /* אם יש צל שגולש לצדדים, עדיף לשים אותו על ה-Container ולא על ה-img */
 }
 
 /* --- 5. תוכן מרכזי --- */
-
 .title-1 {
   font-size: 1.6rem;
   font-weight: bold;
   color: #1d527c;
-  margin-top: 5px;
+  padding-top: 10px;
   margin: 0;
 }
 .title-2 {
