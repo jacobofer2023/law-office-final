@@ -1,19 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. נשתמש באותו שם מפתח בדיוק בשני המקומות (למשל TEST)
   const POPUP_KEY = "popupShown_TEST";
-  // 2. מחיקת המפתח בכל טעינה (למטרת בדיקות בלבד!)
-  localStorage.removeItem(POPUP_KEY);
+  localStorage.removeItem(POPUP_KEY); // מוחק כל פעם לצורך בדיקות
 
   const burger = document.getElementById("burger");
   const navLinks = document.getElementById("navLinks");
   const popupOverlay = document.getElementById("popupOverlay");
 
-  // --- לוגיקת תוכן דינמי (ללא שינוי) ---
+  // --- 1. טעינת תוכן האתר (data.json) ---
   async function updateContent(sectionId) {
     if (!sectionId) return;
     try {
       const response = await fetch("data.json");
-      if (!response.ok) throw new Error("קובץ הנתונים לא נמצא");
+      if (!response.ok) throw new Error("קובץ data.json לא נמצא");
       const data = await response.json();
       const sectionData = data[sectionId];
       if (sectionData) {
@@ -26,28 +24,53 @@ document.addEventListener("DOMContentLoaded", () => {
         if (sectionData.images && sectionData.images.length > 0) {
           imagesHtml = '<div class="content-side-images">';
           sectionData.images.forEach((imgData) => {
-            imagesHtml += `<img src="${imgData.url}" alt="${imgData.alt}" title="${imgData.alt}" width="300" style="height: auto; aspect-ratio: 1/1;" loading="lazy" class="dynamic-img" onerror="this.style.display='none'">`;
+            imagesHtml += `<img src="${imgData.url}" alt="${imgData.alt}" title="${imgData.alt}" width="300" style="height: auto; aspect-ratio: 1/1;" class="dynamic-img" onerror="this.style.display='none'">`;
           });
           imagesHtml += "</div>";
         }
         document.getElementById("content-body").innerHTML = `<div class="content-wrapper"><div class="content-text">${contentHtml}</div>${imagesHtml}</div>`;
-        const displayElement = document.getElementById("content-display");
-        if (displayElement && sectionId !== "about") {
-          displayElement.scrollIntoView({ behavior: "smooth" });
-        }
       }
-    } catch (error) { console.error("שגיאה בטעינת הנתונים:", error); }
+    } catch (error) { console.error("שגיאה ב-updateContent:", error); }
   }
   updateContent("about");
 
-  // --- פונקציות פופאפ גלובליות ---
-  window.openPopup = function () {
-    if (popupOverlay) {
-      popupOverlay.classList.add("active");
-      document.body.style.overflow = "hidden";
-    } else {
-      console.error("Popup overlay not found in HTML!");
+  // --- 2. פונקציות הפופאפ (popup.json) ---
+  window.openPopup = async function () {
+    if (!popupOverlay) return;
+
+    try {
+      const response = await fetch("popup.json");
+      const popupsArray = await response.json();
+
+      // הגרלת אובייקט מהמערך
+      const randomIndex = Math.floor(Math.random() * popupsArray.length);
+      const item = popupsArray[randomIndex];
+
+      // עדכון ה-HTML עם התוכן הרנדומלי
+      const titleElem = document.getElementById("popupTitle");
+      const title2Elem = document.getElementById("popupTitle2");
+      const listContainer = document.getElementById("popupList");
+
+      if (titleElem) titleElem.innerText = item.title;
+      if (title2Elem) title2Elem.innerText = item["title-2"];
+
+      if (listContainer) {
+        // מוחק את ה-<li> שכתבת ידנית ב-HTML ומכניס חדשים
+        listContainer.innerHTML = '';
+        Object.values(item.content).forEach(text => {
+          const li = document.createElement('li');
+          li.innerText = text;
+          listContainer.appendChild(li);
+        });
+      }
+    } catch (error) {
+      console.error("שגיאה בטעינת נתוני JSON לפופאפ:", error);
+      // אם יש שגיאה, ה-Popup יציג את תוכן ברירת המחדל מה-HTML
     }
+
+    // הצגת הפופאפ
+    popupOverlay.classList.add("active");
+    document.body.style.overflow = "hidden";
   };
 
   window.closePopup = function () {
@@ -57,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // --- מאזיני לחיצות ---
+  // --- 3. מאזיני אירועים (בורגר וניווט) ---
   if (burger) {
     burger.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -67,9 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("click", (event) => {
-    // סגירת תפריט מובייל
+    // סגירת בורגר
     if (navLinks.classList.contains("nav-active")) {
-      if (event.target.closest("#navLinks a") || !event.target.closest("#navLinks") && !event.target.closest("#burger")) {
+      if (event.target.closest("#navLinks a") || (!event.target.closest("#navLinks") && !event.target.closest("#burger"))) {
         navLinks.classList.remove("nav-active");
         if (burger) burger.classList.remove("toggle");
       }
@@ -89,16 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // --- הפעלה אוטומטית (עם איפוס זיכרון לבדיקה) ---
-  // שיניתי ל-popupShown_DEBUG כדי שזה יפתח לך בטוח עכשיו
+  // --- 4. הפעלה אוטומטית ---
   const hasSeenPopup = localStorage.getItem(POPUP_KEY);
-
-  // אם אתה רוצה שהפופאפ יופיע תמיד בזמן העבודה, פשוט מחק את ה-IF
   if (!hasSeenPopup) {
     setTimeout(() => {
       openPopup();
       localStorage.setItem(POPUP_KEY, "true");
-      console.log("Popup opened and key saved.");
-    }, 5000); // 2 שניות כדי שלא תצטרך לחכות הרבה
+    }, 5000);
   }
 });

@@ -168,24 +168,20 @@
   <div id="popupOverlay" class="popup-overlay">
     <div class="popup-container">
       <span class="close-btn" onclick="closePopup()">&times;</span>
-      <div class="header">
+      <div class="popup-header">
         <img src="images/logo.jpg">
-        <!--
-        <p>טואף<span class="logo_span2">-</span>קלפה, משרד עו"ד</p>
-        <h2>TOAFF<span class="logo_span1">&</span>KALFA</h2>
-        -->
       </div>
-      <p class="title-2">נפגעת בתאונת דרכים?</p1>
+      <p class="title-1" id="popupTitle">נפגעת בתאונת דרכים?</p>
       <div class="list">
-        <ul class="square-list">
-          <li>האם התאונה היתה תאונת עבודה?</li>
-          <li>האם הובהלת לבי"ח באמבולנס?</li>
-          <li>האם אושפזת בבי"ח?</li>
+        <ul class="square-list" id="popupList">
+          <li id="line1">האם התאונה היתה תאונת עבודה?</li>
+          <li id="line2">האם הובהלת לבי"ח באמבולנס?</li>
+          <li id="line3">האם אושפזת בבית חולים?</li>
         </ul>
       </div>
-      <p class="title-2">כל פרט חשוב!</p1>
+      <p class="title-2" id="popupTitle2">כל פרט חשוב!</p>
       <div class="contact-title">
-        <h1>השאר פרטים ונחזור אליך</h1>
+        <h1>נא השאר פרטים</h1>
       </div>
       <div class="contact-us">
         <form id="popup-form" action="https://formspree.io/f/xgoenqdd" method="POST">
