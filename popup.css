@@ -185,14 +185,14 @@
     width: 100%;
   }
   .contact-title {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
   .title-1 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0;
   }
   .title-2 {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0;
   }
   .list li::before {
