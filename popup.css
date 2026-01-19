@@ -2,10 +2,15 @@
   margin: 0;
   padding: 0;
 }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 /* --- 1. שכבת הרקע --- */
 .popup-overlay {
   position: fixed;
-  padding: 15px;
+  padding: 40px;
   box-sizing: border-box;
   top: 0;
   left: 0;
@@ -32,8 +37,8 @@
   max-width: 420px; /* צר יותר למראה נקי */
   max-height: 90vh;
   overflow-y: auto; /* מוסיף גלילה פנימית אם התוכן ארוך מדי */
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 15px;
+  /*box-sizing: border-box;*/
   background: #fff;
   border-radius: 12px;
   position: relative;
@@ -62,17 +67,17 @@
 .popup-header {
   width: 100%;
   height: auto;
-  border-radius: 15px 15px 15px 15px; /* פינות מעוגלות  */
+  border-radius: 7px 7px 7px 7px; /* פינות מעוגלות  */
   overflow: hidden; /* דואג שהתמונה לא תסתיר את הקימור */
   display: flex; /* אם תרצה לשים טקסט על התמונה בעתיד */
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  /*box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);*/
 }
 
 .popup-header img {
   width: 100%;
   max-width: 100%;
   height: block;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  /*box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);*/
   border-radius: 10px;
 }
 
@@ -81,7 +86,7 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: #c5a059;
-  padding-top: 10px;
+  padding-top: 15px;
   margin: 0;
 }
 .title-2 {
@@ -147,21 +152,66 @@
   font-weight: 500;
 }
 
+/*
+
 .contact-us input,
 .contact-us textarea {
   display: flex;
   margin: auto;
   width: 90%;
-  padding: 3px; /* קטן יותר */
+  padding: 3px; 
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 1rem;
 }
+  */
 
+/* עיצוב ה-Placeholder (הטקסט הרמז) */
+#popup-form input::placeholder,
+#popup-form textarea::placeholder {
+  color: #1d527c; /* אפור כהה וברור לקריאה */
+  opacity: 1; /* ביטול שקיפות בדפדפנים כמו פיירפוקס */
+  font-size: 1.2rem; /* הגדלה קלה לטובת קהל מבוגר */
+  font-weight: 400;
+}
+
+/* עיצוב השדות עצמם לשיפור חווית המשתמש */
+#popup-form input,
+#popup-form textarea {
+  width: 100%; /* פריסה מלאה */
+  padding: 12px; /* ריווח פנימי שנותן אוויר לטקסט */
+  margin-bottom: 10px; /* רווח בין שדה לשדה */
+  border: 1px solid #ccc;
+  border-radius: 4px; /* עיגול פינות עדין */
+  box-sizing: border-box; /* התיקון שדיברנו עליו למניעת חריגה מהשוליים */
+  font-family: sans-serif; /* וודא שהפונט קריא */
+  text-align: right; /* יישור לימין עבור עברית */
+}
+
+/* עיצוב הכפתור החדש שלך */
+#popup-form .btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #1a4a73; /* הצבע הכחול מהלוגו */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#popup-form .btn:hover {
+  background-color: #123456; /* אפקט מעבר עכבר */
+}
+/*סיום עיצוב קוביית השליחה*/
+
+/*
 .btn {
   width: 100%;
-  height: 45px; /* נמוך יותר */
+  height: 45px; 
   border-radius: 8px;
   background-color: #1d527c;
   color: #fff;
@@ -169,13 +219,14 @@
   font-weight: bold;
   border: none;
   cursor: pointer;
-  /* ימינה/שמאלה | למטה/למעלה | טשטוש | צבע */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .btn:hover {
   background-color: #dbb36a;
 }
+  */
 
 /* --- התאמות ספציפיות למסכים קטנים מאוד --- */
 @media (max-width: 480px) {
