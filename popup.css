@@ -62,7 +62,7 @@
 .popup-header {
   width: 100%;
   height: auto;
-  border-radius: 15px 15px 0 0; /* פינות מעוגלות למעלה */
+  border-radius: 15px 15px 15px 15px; /* פינות מעוגלות  */
   overflow: hidden; /* דואג שהתמונה לא תסתיר את הקימור */
   display: flex; /* אם תרצה לשים טקסט על התמונה בעתיד */
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
@@ -71,7 +71,6 @@
 .popup-header img {
   width: 100%;
   max-width: 100%;
-  max-height: 100%;
   height: block;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
