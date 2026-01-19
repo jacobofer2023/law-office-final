@@ -48,18 +48,34 @@
 
 /* --- 3. כפתור סגירה X --- */
 .close-btn {
-  position: absolute;
-  right: 5px;
-  top: -15px;
-  font-size: 35px;
-  font-weight: bold;
+  /* מידות וצורה */
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  /* תצוגת ה-X במרכז */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* עיצוב ויזואלי */
+  background-color: #7e7a7a; /* צבע רקע העיגול */
+  color: #fff; /* צבע ה-X */
+  border: none;
   cursor: pointer;
-  color: #333;
-  z-index: 101;
+  font-size: 24px; /* גודל ה-X */
+  font-family: Arial, sans-serif;
+  line-height: 0; /* מונע מה-X לזוז למטה */
+
+  /* מעבר חלק */
+  transition: all 0.3s ease;
+  outline: none;
 }
 
+/* אפקט במעבר עכבר */
 .close-btn:hover {
-  color: #dbb36a;
+  background-color: #c5a059;
+  transform: scale(1.1); /* הגדלה קלה */
 }
 
 /* --- 4. כותרת עליונה קומפקטית --- */
@@ -85,7 +101,7 @@
   font-size: 1.6rem;
   font-weight: bold;
   color: #c5a059;
-  padding-top: 15px;
+  padding-top: 10px;
   margin: 0;
 }
 .title-2 {
