@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const POPUP_KEY = "popupShown_TEST";
-  localStorage.removeItem(POPUP_KEY); // מוחק כל פעם לצורך בדיקות
+  //localStorage.removeItem(POPUP_KEY); // מוחק כל פעם לצורך בדיקות
 
   const burger = document.getElementById("burger");
   const navLinks = document.getElementById("navLinks");
