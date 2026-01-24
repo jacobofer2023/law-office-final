@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
           imagesHtml += "</div>";
         }
         document.getElementById("content-body").innerHTML = `<div class="content-wrapper"><div class="content-text">${contentHtml}</div>${imagesHtml}</div>`;
+
+        // --- שורה חדשה כאן כדי להוסיף לכתובת האתר את זהות הקישור ---
+        window.location.hash = sectionId;
+        // -----------------------
       }
     } catch (error) { console.error("שגיאה ב-updateContent:", error); }
   }
