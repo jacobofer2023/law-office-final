@@ -15,6 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await response.json();
       const sectionData = data[sectionId];
       if (sectionData) {
+        // --- הוספת שורה לעדכון הכותרת ---
+        document.title = sectionData.title + " | טואף-קלפה משרד עורכי דין";
+        // ----------------------------------------
         document.getElementById("content-title").innerText = sectionData.title;
         const contentHtml = sectionData.content
           .map(text => `<div class="content-paragraph" style="margin-bottom: 15px;">${text}</div>`)
