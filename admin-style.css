@@ -1,0 +1,94 @@
+/* עיצוב כללי */
+body {
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+/* בתוך admin-style.css */
+#admin-content {
+  display: none; /* נסתיר את התוכן עד שנאמת את המשתמש */
+}
+
+/* המכולה המרכזית */
+.container {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+/* כותרות */
+h1 {
+  color: #1a73e8;
+  border-bottom: 2px solid #e8f0fe;
+  padding-bottom: 10px;
+  margin-top: 0;
+}
+
+h3 {
+  color: #3c4043;
+  margin-top: 25px;
+}
+
+/* כפתור התנתקות - ממוקם בפינה */
+.logout-btn {
+  background-color: #ea4335;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  float: left; /* בגלל שאתה ב-RTL זה יצמד לשמאל */
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #d33828;
+}
+
+/* אזור המחשבון */
+#calculator-area {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+}
+
+/* עיצוב אינפוטים בתוך המחשבון */
+input[type="number"],
+input[type="text"] {
+  width: calc(100% - 24px);
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #bdc1c6;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.calc-result {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #e8f0fe;
+  color: #1967d2;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* ניקוי ציפה (Clearfix) בגלל ה-float של הכפתור */
+.container::after {
+  content: "";
+  display: table;
+  clear: both;
+}

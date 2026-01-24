@@ -38,6 +38,16 @@ body {
   transform: translateY(-5px);
 }
 
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+}
+
 /* --- 3. כותרות וטקסט --- */
 h1 {
   color: #c5a059;
