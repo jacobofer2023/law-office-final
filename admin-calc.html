@@ -1,48 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ניהול וחישובים</title>
-    <link rel="stylesheet" href="admin-style.css">
-</head>
+    <link rel="stylesheet" href="admin-style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container-calc">
-        <button class="logout-btn" id="logoutBtn">התנתק</button>
-        <h1>לוח בקרה אישי</h1>
+      <button class="logout-btn" id="logoutBtn">התנתק</button>
+      <p class="control-panel-title">לוח בקרה אישי</p>
 
-        <div id="calculator-area">
-            <h3>מחולל כרטיסי שירות (JSON)</h3>
-            <div class="form-group">
-                <label>כותרת ראשית (title):</label>
-                <input type="text" id="chapterTitle" placeholder="למשל: תאונות דרכים">
+      <div id="calculator-area">
+        <h3>מחולל כרטיסי שירות (JSON)</h3>
+        <div class="form-group">
+          <label>כותרת ראשית (title):</label>
+          <input
+            type="text"
+            id="chapterTitle"
+            placeholder="למשל: תאונות דרכים"
+          />
 
-                <label>תוכן - שורה 1:</label>
-                <input type="text" id="line1" placeholder="שורת פירוט ראשונה">
+          <label>תוכן - שורה 1:</label>
+          <input type="text" id="line1" placeholder="שורת פירוט ראשונה" />
 
-                <label>תוכן - שורה 2:</label>
-                <input type="text" id="line2" placeholder="שורת פירוט שנייה">
+          <label>תוכן - שורה 2:</label>
+          <input type="text" id="line2" placeholder="שורת פירוט שנייה" />
 
-                <label>תוכן - שורה 3:</label>
-                <input type="text" id="line3" placeholder="שורת פירוט שלישית">
+          <label>תוכן - שורה 3:</label>
+          <input type="text" id="line3" placeholder="שורת פירוט שלישית" />
 
-                <label>כותרת תחתונה (title-2):</label>
-                <textarea rows="5" type="text" id="title2" placeholder="למשל: אל תוותר על זכויותיך"></textarea>
-            </div>
-
-            <button id="generateBtn">צור קוד JSON</button>
-
-            <div id="jsonOutputArea" style="display:none; margin-top: 20px;">
-                <h4>הקוד להעתקה:</h4>
-                <pre id="jsonResult"></pre>
-                <button id="copyBtn">העתק קוד</button>
-            </div>
+          <label>כותרת תחתונה (title-2):</label>
+          <textarea
+            rows="5"
+            type="text"
+            id="title2"
+            placeholder="למשל: אל תוותר על זכויותיך"
+          ></textarea>
         </div>
+
+        <button id="generateBtn">צור קוד JSON</button>
+
+        <div id="jsonOutputArea" style="display: none; margin-top: 20px">
+          <h4>הקוד להעתקה:</h4>
+          <pre id="jsonResult"></pre>
+          <button id="copyBtn">העתק קוד</button>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="admin-logic.js"></script>
-</body>
-
+  </body>
 </html>

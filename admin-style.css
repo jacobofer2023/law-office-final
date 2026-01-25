@@ -45,6 +45,15 @@ h3 {
   margin-top: 25px;
 }
 
+.control-panel-title {
+  color: gray;
+  border-bottom: 2px solid #e8f0fe;
+  padding-bottom: 10px;
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
 /* כפתור התנתקות - ממוקם בפינה */
 .logout-btn {
   background-color: #7a6b6b;
