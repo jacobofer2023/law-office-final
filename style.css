@@ -20,7 +20,8 @@ body {
 
 /* --- 2. תבניות וקונטיינרים --- */
 .container,
-.container2 {
+.container2,
+.container3 {
   width: 60%;
   margin: auto;
   padding: 15px;
@@ -34,18 +35,42 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
+.container3 {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  width: 500px;
+  margin-top: 300px;
+}
+
 .container2:hover {
   transform: translateY(-5px);
 }
 
+/*login box*/
 .login-box {
   background: white;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 350px;
+}
+/*end login box*/
+
+.admin-title {
+  font-size: 1.5rem;
+  font-weight: bold;
   text-align: center;
+  color: #c5a059;
+  margin: 0;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  display: none;
 }
 
 /* --- 3. כותרות וטקסט --- */
@@ -202,6 +227,19 @@ p {
   font-size: 30px;
   color: #dab776;
   z-index: 1;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s;
 }
 
 /* --- 6. כפתורים ושירותים --- */
