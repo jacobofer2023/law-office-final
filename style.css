@@ -44,7 +44,6 @@ body {
   align-items: center;
   width: 100%;
   margin-top: 300px;
-  max-width: 500px;
 }
 
 /*login box*/
@@ -53,8 +52,7 @@ body {
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 90%;
+  width: 500px;
 }
 /*end login box*/
 
@@ -399,6 +397,10 @@ footer,
     height: 50vh;
     min-height: 300px;
   }
+
+  .login-box {
+    width: 90%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -520,10 +522,16 @@ footer,
   .container-login {
     width: 90%;
   }
+  .login-box {
+    width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
   .container-login {
+    width: 90%;
+  }
+  .login-box {
     width: 90%;
   }
 }
