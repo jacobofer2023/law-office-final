@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f0f2f5;
+  /* שימוש ב-Flexbox למרכוז מושלם אנכי ואופקי */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: 16px; /* פינות מעוגלות יותר למראה מודרני */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* צל עדין ויוקרתי יותר */
+  width: 100%;
+  max-width: 400px; /* במקום אחוזים, קובעים רוחב מקסימלי */
+  margin: 20px; /* מרווח ביטחון מהקצוות בנייד */
+  text-align: center;
+  direction: rtl;
+}
+
+/* עיצוב שדות הקלט - הוספתי את זה כדי שהטופס ייראה טוב */
+.login-box input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-sizing: border-box; /* קריטי כדי שהפדינג לא יחרוג מהרוחב */
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.login-box input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+/* עיצוב הכפתור */
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.login-box button:hover {
+  background-color: #0056b3;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 10px;
+  background: #f8d7da;
+  padding: 8px;
+  border-radius: 4px;
+  display: none; /* יוצג באמצעות JS */
+}

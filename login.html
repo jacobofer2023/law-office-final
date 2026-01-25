@@ -1,24 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>כניסת מנהל</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
+    <link rel="stylesheet" href="login.css" />
+  </head>
 
-<body>
+  <body>
     <div class="container-login">
-        <div class="login-box">
-            <p class="admin-title">ניהול מערכת</p>
-            <input type="email" id="email" placeholder="אימייל">
-            <input type="password" id="password" placeholder="סיסמה">
-            <button onclick="login()">התחבר</button>
-            <div id="error-msg" class="error">אימייל או סיסמה שגויים</div>
-        </div>
+      <div class="login-box">
+        <p class="admin-title">ניהול מערכת</p>
+        <input type="email" id="email" placeholder="אימייל" />
+        <input type="password" id="password" placeholder="סיסמה" />
+        <button onclick="login()">התחבר</button>
+        <div id="error-msg" class="error">אימייל או סיסמה שגויים</div>
+      </div>
     </div>
     <script type="module" src="login.js"></script>
-</body>
-
+  </body>
 </html>
