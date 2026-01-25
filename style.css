@@ -38,16 +38,17 @@ body {
 }
 
 .container-login {
-  margin: auto;
   display: flex;
+  margin: auto;
   text-align: center;
   align-items: center;
-  width: 100%;
+  width: 500px;
   margin-top: 300px;
 }
 
 /*login box*/
 .login-box {
+  margin: auto;
   background: white;
   padding: 30px;
   border-radius: 12px;
@@ -391,6 +392,7 @@ footer,
 
   .container-login {
     width: 90%;
+    margin: 0;
   }
 
   .main-header {
@@ -400,6 +402,7 @@ footer,
 
   .login-box {
     width: 90%;
+    margin: 0;
   }
 }
 
@@ -521,17 +524,10 @@ footer,
 
   .container-login {
     width: 90%;
+    margin: 0;
   }
   .login-box {
     width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  .container-login {
-    width: 90%;
-  }
-  .login-box {
-    width: 90%;
+    margin: 0;
   }
 }
