@@ -390,6 +390,7 @@ footer,
   .container2 {
     width: 90%;
   }
+
   .main-header {
     height: 50vh;
     min-height: 300px;
@@ -510,5 +511,11 @@ footer,
 
   .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container3 {
+    max-width: 90%;
   }
 }
