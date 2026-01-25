@@ -1,19 +1,9 @@
 /* עיצוב כללי */
-* {
+body {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Arial, sans-serif;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 1.1rem;
   background-color: #f0f2f5;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+  box-sizing: border-box;
 }
 /* בתוך admin-style.css */
 #admin-content {
@@ -21,14 +11,16 @@ body {
 }
 
 /* המכולה המרכזית */
-.container {
+.container-calc {
+  display: flex;
+  text-align: center;
+  align-items: center;
   background: white;
   width: 100%;
   max-width: 800px;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
   color: #575764;
 }
 
@@ -114,7 +106,7 @@ input::placeholder {
 }
 
 /* ניקוי ציפה (Clearfix) בגלל ה-float של הכפתור */
-.container::after {
+.container-calc::after {
   content: "";
   display: table;
   clear: both;
@@ -137,14 +129,14 @@ button:hover {
 }
 
 @media (max-width: 1024px) {
-  .container {
+  .container-calc {
     width: 90%;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
+  .container-calc {
     max-width: 100%;
     font-size: 1rem;
   }

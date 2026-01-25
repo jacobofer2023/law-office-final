@@ -33,19 +33,18 @@ body {
   margin-bottom: 25px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
+.container2:hover {
+  transform: translateY(-5px);
+}
 
-.container3 {
+.container-login {
   margin: auto;
   display: flex;
   text-align: center;
   align-items: center;
-  width: 480px;
+  width: 100%;
   margin-top: 300px;
   max-width: 500px;
-}
-
-.container2:hover {
-  transform: translateY(-5px);
 }
 
 /*login box*/
@@ -392,6 +391,10 @@ footer,
     width: 90%;
   }
 
+  .container-login {
+    width: 90%;
+  }
+
   .main-header {
     height: 50vh;
     min-height: 300px;
@@ -513,10 +516,14 @@ footer,
   .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
   }
+
+  .container-login {
+    width: 90%;
+  }
 }
 
 @media (max-width: 480px) {
-  .container3 {
-    max-width: 100%;
+  .container-login {
+    width: 90%;
   }
 }
