@@ -45,7 +45,7 @@ h3 {
   margin-top: 25px;
 }
 
-.control-panel-title {
+.container-calc p {
   color: gray;
   border-bottom: 2px solid #e8f0fe;
   padding-bottom: 10px;
@@ -104,13 +104,13 @@ textarea {
 textarea::placeholder {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 1.1rem;
-  color: #0808a7;
+  color: gray;
 }
 
 input::placeholder {
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 1.1rem;
-  color: #0808a7;
+  color: gray;
 }
 
 .calc-result {
