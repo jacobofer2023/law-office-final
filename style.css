@@ -20,8 +20,7 @@ body {
 
 /* --- 2. תבניות וקונטיינרים --- */
 .container,
-.container2,
-.container3 {
+.container2 {
   width: 60%;
   margin: auto;
   padding: 15px;
@@ -36,11 +35,13 @@ body {
 }
 
 .container3 {
+  margin: auto;
   display: flex;
   text-align: center;
   align-items: center;
   width: 480px;
   margin-top: 300px;
+  max-width: 500px;
 }
 
 .container2:hover {
@@ -54,7 +55,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   width: 100%;
-  max-width: 350px;
+  max-width: 90%;
 }
 /*end login box*/
 
@@ -516,6 +517,6 @@ footer,
 
 @media (max-width: 480px) {
   .container3 {
-    max-width: 90%;
+    max-width: 100%;
   }
 }
