@@ -40,10 +40,31 @@ body {
   direction: rtl; /* שומר על כיווניות עברית */
 }
 
+p {
+  display: flex;
+  align-items: center; /* מיישר אותם לאותו גובה */
+  width: 100%; /* שיתפרסו על כל רוחב השאלה */
+  margin: 0;
+  padding: 10px 10px; /* קצת רווח מהצדדים */
+  font-size: 1.2rem;
+  color: rgb(54, 154, 197);
+  direction: rtl; /* שומר על כיווניות עברית */
+}
+
 /* עיצוב ספציפי לטיימר כדי שיבלוט */
 #timer {
   color: #e74c3c; /* צבע אדום לטיימר */
   font-family: monospace; /* פונט של שעון */
+  background: #ffeaea;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid #e74c3c;
+}
+
+#startBtn {
+  color: #e74c3c; /* צבע אדום לטיימר */
+  font-family: monospace; /* פונט של שעון */
+  font-size: 1.5rem;
   background: #ffeaea;
   padding: 5px 15px;
   border-radius: 20px;
