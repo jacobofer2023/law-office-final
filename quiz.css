@@ -1,0 +1,113 @@
+/* אתחול בסיסי והגדרת כיווניות */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  /* הגדרת כיווניות לכל האתר */
+  direction: rtl;
+  text-align: right;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* עיצוב הניקוד */
+.main h1 {
+  display: flex; /* הופך את הכותרת לקונטיינר גמיש */
+  justify-content: space-between; /* דוחף את הניקוד לצד אחד ואת הטיימר לצד השני */
+  align-items: center; /* מיישר אותם לאותו גובה */
+  width: 100%; /* שיתפרסו על כל רוחב השאלה */
+  margin: 0 0 20px 0;
+  padding: 0 10px; /* קצת רווח מהצדדים */
+  font-size: 1.5rem;
+  color: rgb(241, 118, 65);
+  direction: rtl; /* שומר על כיווניות עברית */
+}
+
+/* עיצוב ספציפי לטיימר כדי שיבלוט */
+#timer {
+  color: #e74c3c; /* צבע אדום לטיימר */
+  font-family: monospace; /* פונט של שעון */
+  background: #ffeaea;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid #e74c3c;
+}
+
+/* כרטיסיית השאלה */
+.question {
+  background-color: rgb(245, 245, 242);
+  width: 100%;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* יישור הטקסט בתוך הכרטיסייה */
+  text-align: center;
+}
+
+.question h2 {
+  color: rgb(91, 83, 83);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.question p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* עיצוב התשובות - RTL */
+.question ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 15px;
+}
+
+.question li {
+  background-color: white;
+  color: rgb(11, 11, 185);
+  padding: 15px;
+  font-size: 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  /* מוודא שהטקסט בתוך הכפתור ממורכז או מיושר לימין לבחירתך */
+  text-align: right;
+}
+
+.question li:hover {
+  background-color: rgb(100, 100, 193);
+  color: white;
+  border: none;
+  transform: translateY(-2px);
+}
+
+/* התאמות לנייד */
+@media (max-width: 600px) {
+  .main {
+    margin-top: 20px;
+  }
+  .question h2 {
+    font-size: 1.4rem;
+  }
+}

@@ -168,7 +168,7 @@
 /* עיצוב ה-Placeholder (הטקסט הרמז) */
 #popup-form input::placeholder,
 #popup-form textarea::placeholder {
-  color: #1d527c; /* אפור כהה וברור לקריאה */
+  color: #9ca3a8; /* אפור כהה וברור לקריאה */
   opacity: 1; /* ביטול שקיפות בדפדפנים כמו פיירפוקס */
   font-size: 1.2rem; /* הגדלה קלה לטובת קהל מבוגר */
   font-weight: 400;
