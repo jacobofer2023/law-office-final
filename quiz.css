@@ -69,7 +69,8 @@ body {
 
 .question p {
   color: #666;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  font-weight: 400;
   margin-bottom: 20px;
 }
 
