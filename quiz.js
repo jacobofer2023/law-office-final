@@ -1,4 +1,4 @@
-// 1. הגדרת המשתנים להתחלה ב-0
+// טיימר
 let seconds = 0;
 let minutes = 0;
 let timerInterval;
@@ -40,3 +40,31 @@ function playAndStart() {
     sound.play();
     console.log("השעון התחיל והצליל הושמע!");
 }
+//end timer
+
+// question
+
+async function getQues() {
+    //select fields
+    const ques_1 = document.getElementById('que');
+    const ans_1 = document.getElementById('ans1');
+    const ans_2 = document.getElementById('ans2');
+    const ans_3 = document.getElementById('ans3');
+    const ans_4 = document.getElementById('ans4');
+
+    try {
+        const response = await fetch('questions.json');
+        const data = await response.json();
+        ques_1.textContent = data.question;
+        ans_1.textContent = data.answer1;
+        ans_2.textContent = data.answer2;
+        ans_3.textContent = data.answer3;
+        ans_4.textContent = data.answer4;
+    } catch (err) {
+        console.log("OOps!, file not found!", err);
+        ques.textContent = "Error loading data";
+    }
+}
+getQues();
+
+

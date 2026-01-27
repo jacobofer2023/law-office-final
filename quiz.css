@@ -40,15 +40,15 @@ body {
   direction: rtl; /* שומר על כיווניות עברית */
 }
 
-p {
-  display: flex;
-  align-items: center; /* מיישר אותם לאותו גובה */
+.question p {
+  direction: rtl; /* שומר על כיווניות עברית */
+  text-align: justify; /* מיישר אותם לאותו גובה */
   width: 100%; /* שיתפרסו על כל רוחב השאלה */
   margin: 0;
   padding: 10px 10px; /* קצת רווח מהצדדים */
   font-size: 1.2rem;
-  color: rgb(54, 154, 197);
-  direction: rtl; /* שומר על כיווניות עברית */
+  color: rgb(79, 82, 83);
+  line-height: 1.2;
 }
 
 /* עיצוב ספציפי לטיימר כדי שיבלוט */
@@ -84,7 +84,7 @@ p {
 
 .question h2 {
   color: rgb(91, 83, 83);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 10px;
 }
 
@@ -106,7 +106,7 @@ p {
 
 .question li {
   background-color: white;
-  color: rgb(11, 11, 185);
+  color: rgb(58, 58, 61);
   padding: 15px;
   font-size: 1.2rem;
   border: 2px solid #e0e0e0;

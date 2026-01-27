@@ -10,8 +10,6 @@
 
 <body>
   <div class="main">
-    <p>בכל מבחן 10 שאלות, ועומדים לרשותך 24 דקות לפתרונן</p>
-    <p>לתחילת המבחן לחץ על כפתור "התחל"</p>
     <h1 id="scors">
       <span>Score: <span id="span">0</span></span>
       <span id="timerDisplay">00:00</span>
@@ -19,13 +17,14 @@
     </h1>
     <audio id="startSound" src="sounds/timer.wav"></audio>
     <div class="question" id="question">
-      <h2 id="ques">שאלות</h2>
+      <h2 id="ques-title">שאלות</h2>
+      <p id="que"></p>
       <p>בחר בתשובה הנכונה ביותר</p>
       <ul id="answers">
-        <li>תשובה 1</li>
-        <li>תשובה 2</li>
-        <li>תשובה 3</li>
-        <li>תשובה 4</li>
+        <li id="ans1">תשובה 1</li>
+        <li id="ans2">תשובה 2</li>
+        <li id="ans3">תשובה 3</li>
+        <li id="ans4">תשובה 4</li>
       </ul>
     </div>
   </div>
