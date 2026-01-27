@@ -80,6 +80,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   /* יישור הטקסט בתוך הכרטיסייה */
   text-align: center;
+  list-style: none; /* מבטל את המספרים המקוריים של הדפדפן */
+  counter-reset: question-counter; /* יוצר מונה חדש */
 }
 
 .question h2 {
@@ -90,9 +92,10 @@ body {
 
 .question p {
   color: #666;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
   margin-bottom: 20px;
+  font-weight: 500;
 }
 
 /* עיצוב התשובות - RTL */
@@ -105,16 +108,29 @@ body {
 }
 
 .question li {
+  counter-increment: question-counter; /* מקדם את המונה בכל פריט */
+  display: flex; /* מאפשר הצמדה של המספר לטקסט בקלות */
+  align-items: center;
+  gap: 10px; /* רווח בין המספר לטקסט */
+
   background-color: white;
   color: rgb(58, 58, 61);
   padding: 15px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
-  /* מוודא שהטקסט בתוך הכפתור ממורכז או מיושר לימין לבחירתך */
   text-align: right;
+  margin-bottom: 10px; /* רווח בין כרטיסייה לכרטיסייה */
+}
+
+/* 2. עיצוב המספר עצמו */
+.question li::before {
+  content: counter(question-counter) "."; /* מציג את המספר עם נקודה */
+  font-weight: bold;
+  color: #000; /* צבע שונה למספר כדי שיבלוט */
+  min-width: 25px; /* שומר על מרחק קבוע גם כשהמספר גדל */
 }
 
 .question li:hover {
@@ -131,5 +147,9 @@ body {
   }
   .question h2 {
     font-size: 1.4rem;
+  }
+
+  .question p {
+    font-size: 1rem;
   }
 }
