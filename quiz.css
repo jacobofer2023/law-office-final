@@ -1,155 +1,212 @@
-/* אתחול בסיסי והגדרת כיווניות */
+/* אתחול בסיסי */
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f9;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 100vh;
-  /* הגדרת כיווניות לכל האתר */
-  direction: rtl;
   text-align: right;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #d8d8e3;
+  min-height: 100vh;
+  direction: rtl;
 }
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-  padding: 20px;
+  margin: 0;
+  padding: 15px;
   width: 100%;
   max-width: 800px;
 }
 
-/* עיצוב הניקוד */
+/* עיצוב הניקוד והטיימר - פריסה גמישה */
 .main h1 {
-  display: flex; /* הופך את הכותרת לקונטיינר גמיש */
-  justify-content: space-between; /* דוחף את הניקוד לצד אחד ואת הטיימר לצד השני */
-  align-items: center; /* מיישר אותם לאותו גובה */
-  width: 100%; /* שיתפרסו על כל רוחב השאלה */
-  margin: 0 0 20px 0;
-  padding: 0 10px; /* קצת רווח מהצדדים */
-  font-size: 1.5rem;
+  padding: 0;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.3rem;
   color: rgb(241, 118, 65);
-  direction: rtl; /* שומר על כיווניות עברית */
 }
 
-.question p {
-  direction: rtl; /* שומר על כיווניות עברית */
-  text-align: justify; /* מיישר אותם לאותו גובה */
-  width: 100%; /* שיתפרסו על כל רוחב השאלה */
+.main h2 {
+  padding: 0;
   margin: 0;
-  padding: 10px 10px; /* קצת רווח מהצדדים */
-  font-size: 1rem;
-  color: rgb(79, 82, 83);
-  line-height: 1.2;
-}
-
-/* עיצוב ספציפי לטיימר כדי שיבלוט */
-#timer {
-  color: #e74c3c; /* צבע אדום לטיימר */
-  font-family: monospace; /* פונט של שעון */
-  background: #ffeaea;
-  padding: 5px 15px;
-  border-radius: 20px;
-  border: 1px solid #e74c3c;
-}
-
-#startBtn {
-  color: #e74c3c; /* צבע אדום לטיימר */
-  font-family: monospace; /* פונט של שעון */
-  font-size: 1.5rem;
-  background: #ffeaea;
-  padding: 5px 15px;
-  border-radius: 20px;
-  border: 1px solid #e74c3c;
+  color: #6464c1;
 }
 
 /* כרטיסיית השאלה */
 .question {
-  background-color: rgb(245, 245, 242);
-  width: 100%;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  /* יישור הטקסט בתוך הכרטיסייה */
   text-align: center;
-  list-style: none; /* מבטל את המספרים המקוריים של הדפדפן */
-  counter-reset: question-counter; /* יוצר מונה חדש */
+  background-color: white;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.question h2 {
-  color: rgb(91, 83, 83);
-  font-size: 1.6rem;
-  margin-bottom: 10px;
+.question h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgb(241, 118, 65);
 }
 
-.question p {
-  color: #666;
+#que {
+  direction: rtl;
+  text-align: justify; /* יישור דו-צדדי */
+  text-justify: inter-word; /* חלוקת רווחים טבעית יותר */
   font-size: 1rem;
-  font-weight: 400;
-  margin-bottom: 20px;
-  font-weight: 500;
+  color: #333;
+  margin: 20px 0;
+  line-height: 1;
 }
 
-/* עיצוב התשובות - RTL */
 .question ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 15px 0;
   display: grid;
+  /* במחשב: 2 טורים. במובייל זה ישתנה לטור אחד */
+  grid-template-columns: repeat(2, 1fr);
   gap: 15px;
+  line-height: 1;
 }
 
 .question li {
-  counter-increment: question-counter; /* מקדם את המונה בכל פריט */
-  display: flex; /* מאפשר הצמדה של המספר לטקסט בקלות */
-  align-items: center;
-  gap: 10px; /* רווח בין המספר לטקסט */
-
-  background-color: white;
-  color: rgb(58, 58, 61);
-  padding: 15px;
+  background-color: rgba(191, 209, 208, 0.285);
+  color: #333;
+  padding: 20px; /* פדינג נדיב ללחיצה קלה */
   font-size: 1rem;
   border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: right;
-  margin-bottom: 10px; /* רווח בין כרטיסייה לכרטיסייה */
-}
+  transition: all 0.2s ease-in-out;
+  line-height: 1.2;
 
-/* 2. עיצוב המספר עצמו */
-.question li::before {
-  content: counter(question-counter) "."; /* מציג את המספר עם נקודה */
-  font-weight: bold;
-  color: #000; /* צבע שונה למספר כדי שיבלוט */
-  min-width: 25px; /* שומר על מרחק קבוע גם כשהמספר גדל */
+  /* היישור הדו-צדדי שביקשת */
+  text-align: justify;
+  text-justify: inter-word;
+
+  /* צל עדין שנותן עומק */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .question li:hover {
-  background-color: rgb(100, 100, 193);
-  color: white;
-  border: none;
+  border-color: #6464c1;
+  background-color: rgba(113, 197, 193, 0.587);
   transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(100, 100, 193, 0.2);
+}
+/* עיצוב כפתור התחלה וטיימר */
+#startBtn,
+#timerDisplay {
+  font-size: 1rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 2px solid #e74c3c;
+  background: #ffeaea;
+  color: #e74c3c;
+  cursor: pointer;
 }
 
-/* התאמות לנייד */
+.case-description {
+  font-size: 1rem;
+  color: #444;
+  background: #fdfdfd;
+  margin: 0;
+  padding: 15px;
+  border-right: 4px solid #6464c1; /* פס צדדי נותן מראה של 'ציטוט' או 'קייס' */
+  text-align: justify;
+  line-height: 1.2;
+}
+
+/* השאלה עצמה - מודגשת יותר */
+.actual-question {
+  margin-bottom: 10px;
+  padding-right: 20px;
+  text-align: center; /* השאלה עצמה תהיה במרכז */
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222;
+  border-bottom: 1px dashed #ccc;
+}
+
+.span_score {
+  font-size: 1.3rem;
+  color: #3434c3;
+}
+
+/* --- התאמות ל-MOBILE (Media Queries) --- */
+
 @media (max-width: 600px) {
   .main {
-    margin-top: 20px;
-  }
-  .question h2 {
-    font-size: 1.4rem;
+    margin-top: 7px;
+    font-size: 1rem;
   }
 
-  .question p {
+  .span_score {
     font-size: 1rem;
+  }
+
+  .case-description {
+    font-size: 0.8rem;
+    padding: 10px;
+    line-height: 1.1;
+  }
+  .actual-question {
+    font-size: 0.8rem;
+    line-height: 1.1;
+  }
+
+  .main h1 {
+    flex-direction: column; /* אחד מתחת לשני במובייל */
+    gap: 15px;
+    font-size: 0.8rem;
+  }
+
+  .question {
+    padding: 10px;
+    line-height: 1.1;
+  }
+
+  .question ul {
+    /* בטלפון: תשובה אחת בשורה (טור אחד) */
+    grid-template-columns: 1fr;
+    line-height: 1.1;
+  }
+
+  .question h2 {
+    font-size: 1rem;
+  }
+
+  .question h3 {
+    font-size: 1rem;
+  }
+
+  .question li {
+    padding: 10px; /* שטח לחיצה גדול יותר לאצבע */
+    font-size: 0.8rem;
+    line-height: 1.1;
+  }
+
+  #que {
+    font-size: 0.8rem;
+    line-height: 1.1;
+  }
+
+  #startBtn,
+  #timerDisplay {
+    font-size: 0.8rem;
+    padding: 6px 10px;
   }
 }
