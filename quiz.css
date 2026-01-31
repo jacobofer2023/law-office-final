@@ -83,8 +83,8 @@ body {
 }
 
 .question li {
-  background-color: rgba(191, 209, 208, 0.285);
-  color: #333;
+  background-color: #3170dc;
+  color: #fff;
   padding: 20px; /* פדינג נדיב ללחיצה קלה */
   font-size: 1rem;
   border: 2px solid #e0e0e0;
@@ -103,7 +103,8 @@ body {
 
 .question li:hover {
   border-color: #6464c1;
-  background-color: rgba(113, 197, 193, 0.587);
+  background-color: #4f658d5d;
+  color: black;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(100, 100, 193, 0.2);
 }
@@ -159,19 +160,19 @@ body {
   }
 
   .case-description {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 10px;
     line-height: 1.1;
   }
   .actual-question {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.1;
   }
 
   .main h1 {
     flex-direction: column; /* אחד מתחת לשני במובייל */
     gap: 15px;
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   .question {
@@ -195,18 +196,18 @@ body {
 
   .question li {
     padding: 10px; /* שטח לחיצה גדול יותר לאצבע */
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.1;
   }
 
   #que {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.1;
   }
 
   #startBtn,
   #timerDisplay {
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 6px 10px;
   }
 }
