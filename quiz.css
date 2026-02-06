@@ -41,7 +41,7 @@ body {
 .main h2 {
   padding: 0;
   margin: 0;
-  color: #6464c1;
+  color: #746969;
 }
 
 /* כרטיסיית השאלה */
@@ -58,7 +58,7 @@ body {
   padding: 0;
   margin: 0;
   font-size: 1.1rem;
-  color: rgb(241, 118, 65);
+  color: rgb(101, 81, 71);
 }
 
 #que {
@@ -83,8 +83,8 @@ body {
 }
 
 .question li {
-  background-color: #3170dc;
-  color: #fff;
+  background-color: rgba(191, 209, 208, 0.285);
+  color: #333;
   padding: 20px; /* פדינג נדיב ללחיצה קלה */
   font-size: 1rem;
   border: 2px solid #e0e0e0;
@@ -103,8 +103,7 @@ body {
 
 .question li:hover {
   border-color: #6464c1;
-  background-color: #4f658d5d;
-  color: black;
+  background-color: rgba(113, 197, 193, 0.587);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(100, 100, 193, 0.2);
 }
@@ -118,6 +117,22 @@ body {
   background: #ffeaea;
   color: #e74c3c;
   cursor: pointer;
+}
+#startBtn:hover {
+  background: #dad0b7;
+}
+
+#next_btn {
+  font-size: 1rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 2px solid #e74c3c;
+  background: #ffeaea;
+  color: #e74c3c;
+  cursor: pointer;
+}
+#next_btn:hover {
+  background: #dad0b7;
 }
 
 .case-description {
@@ -144,7 +159,12 @@ body {
 
 .span_score {
   font-size: 1.3rem;
-  color: #3434c3;
+  color: #e74c3c;
+}
+
+.disabled {
+  pointer-events: none; /* מבטל את היכולת ללחוץ על האלמנט */
+  opacity: 0.8; /* אופציונלי: מעט שקיפות כדי להראות שזה חסום */
 }
 
 /* --- התאמות ל-MOBILE (Media Queries) --- */
@@ -160,19 +180,19 @@ body {
   }
 
   .case-description {
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 10px;
     line-height: 1.1;
   }
   .actual-question {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.1;
   }
 
   .main h1 {
     flex-direction: column; /* אחד מתחת לשני במובייל */
     gap: 15px;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .question {
@@ -196,18 +216,18 @@ body {
 
   .question li {
     padding: 10px; /* שטח לחיצה גדול יותר לאצבע */
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.1;
   }
 
   #que {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.1;
   }
 
   #startBtn,
   #timerDisplay {
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 6px 10px;
   }
 }

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="images\icon.ico">
   <link rel="stylesheet" href="quiz.css" />
   <title>Quiz - Game</title>
 </head>
@@ -22,14 +23,19 @@
       <p id="case-text" class="case-description"></p>
       <p id="que" class="actual-question"></p>
       <ul id="answers">
-        <li id="ans1"></li>
-        <li id="ans2"></li>
-        <li id="ans3"></li>
-        <li id="ans4"></li>
+        <li id="1" onclick="userChooseQues(this)"></li>
+        <li id="2" onclick="userChooseQues(this)"></li>
+        <li id="3" onclick="userChooseQues(this)"></li>
+        <li id="4" onclick="userChooseQues(this)"></li>
       </ul>
+
+      <div class="footer">
+        <button id="next_btn" onclick="nextQuestion()">שאלה הבאה</button>
+      </div>
     </div>
+
   </div>
-  <script src="quiz.js"></script>
+  <script src=" quiz.js"></script>
 </body>
 
 </html>
