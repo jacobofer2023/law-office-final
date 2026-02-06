@@ -87,52 +87,55 @@ body {
   color: #333;
   padding: 20px; /* פדינג נדיב ללחיצה קלה */
   font-size: 1rem;
-  border: 2px solid #e0e0e0;
+  border: 1px solid #e0e0e0;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   line-height: 1.2;
-
   /* היישור הדו-צדדי שביקשת */
   text-align: justify;
   text-justify: inter-word;
-
   /* צל עדין שנותן עומק */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* צל רך יותר ורחב */
 }
 
 .question li:hover {
   border-color: #6464c1;
   background-color: rgba(113, 197, 193, 0.587);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 100, 193, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(100, 100, 193, 0.3); /* צל חזק יותר בריחוף */
 }
 /* עיצוב כפתור התחלה וטיימר */
 #startBtn,
-#timerDisplay {
-  font-size: 1rem;
-  padding: 8px 20px;
-  border-radius: 50px;
-  border: 2px solid #e74c3c;
-  background: #ffeaea;
-  color: #e74c3c;
-  cursor: pointer;
-}
-#startBtn:hover {
-  background: #dad0b7;
-}
-
+#timerDisplay,
 #next_btn {
   font-size: 1rem;
   padding: 8px 20px;
   border-radius: 50px;
-  border: 2px solid #e74c3c;
+  border: 1.5px solid #e74d3c97;
   background: #ffeaea;
   color: #e74c3c;
   cursor: pointer;
+  /* הוספת הצל */
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease; /* אנימציה חלקה בלחיצה */
 }
+
+#startBtn:hover {
+  background: #dad0b7;
+}
+
 #next_btn:hover {
   background: #dad0b7;
+}
+
+/* אפקט לחיצה - הכפתור "שוקע" */
+#startBtn:active,
+#next_btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .case-description {
@@ -190,9 +193,12 @@ body {
   }
 
   .main h1 {
-    flex-direction: column; /* אחד מתחת לשני במובייל */
-    gap: 15px;
-    font-size: 0.8rem;
+    flex-direction: row; /* משנה מ-column בחזרה לשורה */
+    justify-content: space-between; /* פורס לצדדים */
+    align-items: center;
+    gap: 5px; /* רווח קטן בין האלמנטים */
+    font-size: 0.8rem; /* גודל טקסט מתאים לנייד */
+    flex-wrap: nowrap; /* מונע מהם לקפוץ שורה גם אם צפוף */
   }
 
   .question {
@@ -228,6 +234,7 @@ body {
   #startBtn,
   #timerDisplay {
     font-size: 0.8rem;
-    padding: 6px 10px;
+    padding: 5px 10px;
+    white-space: nowrap; /* מונע מהטקסט בתוך הכפתור להישבר */
   }
 }
