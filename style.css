@@ -97,10 +97,13 @@ h2 {
   font-size: 50px;
 }
 h3 {
+  text-align: right; /* מיישר את הטקסט לימין */
+  direction: rtl;
   color: #36407a;
   font-size: 17px;
   font-weight: 600;
-  margin: 0;
+  margin-top: 8px;
+  margin-bottom: 15px;
 }
 h4 {
   color: #36407a;
@@ -338,13 +341,33 @@ button {
   gap: 20px;
 }
 .dynamic-img {
-  width: 100%;
-  aspect-ratio: 1 / 1 !important; /* מכריח ריבוע ללא קשר לנתוני ה-JS */
-  object-fit: cover; /* חותך את שולי התמונה כדי שלא תתכווץ */
-  object-position: center; /* מוודא שהחיתוך מתבצע מהמרכז */
+  width: 300px;
+  height: 300px;
+  /* מכיוון שהתמונות כבר ריבועיות, object-fit רק מוודא שהן 
+       נכנסות למסגרת בצורה מושלמת בלי "גליצ'ים" של פיקסלים */
+  object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   display: block;
+}
+
+.content-row {
+  display: flex;
+  flex-direction: row-reverse; /* שומר על תמונה בימין */
+  gap: 30px;
+  align-items: flex-start;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0; /* קו מפריד עדין בין פריטים */
+}
+
+.content-row:last-child {
+  border-bottom: none; /* מסיר את הקו בפריט האחרון */
+}
+
+.content-wrapper {
+  display: block; /* משנים מ-flex ל-block כי השורות עצמן הן ה-flex */
+  width: 100%;
 }
 
 input,
@@ -371,10 +394,22 @@ footer,
   position: fixed;
   right: 30px;
   opacity: 0;
-  bottom: -50px;
+  bottom: 20px; /* נקודת ההתחלה - קצת יותר גבוה ממה שהיה */
   padding: 0px;
+  z-index: 9999; /* חשוב מאוד! כדי שלא ייעלם מאחורי ה-Footer */
   animation: fade-up 1000ms forwards;
-  animation-delay: 1000ms;
+  animation-delay: 1500ms; /* השהיה קלה כדי שהאתר ייטען קודם */
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* מתחיל 50 פיקסלים מתחת למיקום הסופי */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* מגיע למיקום המדויק שהגדרנו ב-bottom */
+  }
 }
 .service-icon-container {
   height: 70px; /* גובה מקסימלי לאייקון */
@@ -439,6 +474,33 @@ footer,
 }
 
 @media (max-width: 768px) {
+  .content-row {
+    flex-direction: column; /* תמונה מעל טקסט במובייל */
+    text-align: right;
+  }
+
+  .content-text {
+    text-align: right; /* שומר על יישור לימין בטקסט עצמו */
+    width: 100%;
+  }
+  .content-img-box {
+    width: 100%;
+    margin-top: 20px; /* רווח בין הטקסט לתמונה */
+  }
+  .dynamic-img {
+    max-width: 100%;
+    height: auto;
+  }
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .content-side-images {
+    width: 100%;
+    max-width: 300px; /* שלא תהיה ענקית במובייל */
+    margin-bottom: 20px;
+  }
   /* טקסטים וכותרות */
   h2 {
     font-size: 32px;
