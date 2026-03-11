@@ -1,24 +1,56 @@
 document.addEventListener("DOMContentLoaded", () => {
   const POPUP_KEY = "popupShown_TEST";
-  localStorage.removeItem(POPUP_KEY); // מוחק כל פעם לצורך בדיקות
+  localStorage.removeItem(POPUP_KEY);
 
   const burger = document.getElementById("burger");
   const navLinks = document.getElementById("navLinks");
   const popupOverlay = document.getElementById("popupOverlay");
 
-  // --- 1. טעינת תוכן האתר (data.json) ---
+  // --- 1. פונקציית העזר לרינדור הגריד (הגדרת הפונקציה) ---
+  function renderServicesGrid(services) {
+    const gridContainer = document.querySelector(".service-grid");
+    // אם הגריד לא קיים או שכבר יש בו תוכן (כדי שלא יתרנדר כל פעם מחדש), פשוט צא
+    if (!gridContainer || gridContainer.innerHTML.trim() !== "") return;
+
+    gridContainer.innerHTML = ""; // ניקוי (לביטחון)
+
+    services.forEach((service, index) => {
+      const card = document.createElement("div");
+      card.className = "service-card";
+
+      // כל כרטיסייה תחכה 0.15 שניות יותר מהקודמת לה
+      card.style.animationDelay = `${index * 0.15}s`;
+
+      card.innerHTML = `
+          <div class="service-icon-container">
+            <img src="images/${service.icon}" alt="${service.title}" class="service-icon-img">
+          </div>
+          <h4>${service.title}</h4>
+          <p>${service.description}</p>
+          <a href="#content-display" data-section="${service.id}">למידע נוסף ←</a>
+      `;
+      gridContainer.appendChild(card);
+    });
+  }
+
+  // --- 2. טעינת תוכן האתר (updateContent) ---
   async function updateContent(sectionId) {
     if (!sectionId) return;
     try {
       const response = await fetch("data.json");
       if (!response.ok) throw new Error("קובץ data.json לא נמצא");
       const data = await response.json();
+
+      // כאן אנחנו קוראים לפונקציה שהגדרנו למעלה!
+      if (data.servicesGrid) {
+        renderServicesGrid(data.servicesGrid);
+      }
+
       const sectionData = data[sectionId];
       if (sectionData) {
-        // --- הוספת שורה לעדכון הכותרת ---
         document.title = sectionData.title + " | טואף-קלפה משרד עורכי דין";
-        // ----------------------------------------
         document.getElementById("content-title").innerText = sectionData.title;
+
         const contentHtml = sectionData.content
           .map(text => `<div class="content-paragraph" style="margin-bottom: 15px;">${text}</div>`)
           .join("");
@@ -33,12 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         document.getElementById("content-body").innerHTML = `<div class="content-wrapper"><div class="content-text">${contentHtml}</div>${imagesHtml}</div>`;
 
-        // --- שורה חדשה כאן כדי להוסיף לכתובת האתר את זהות הקישור ---
         window.location.hash = sectionId;
-        // -----------------------
       }
     } catch (error) { console.error("שגיאה ב-updateContent:", error); }
   }
+
+  // הפעלה ראשונית
   updateContent("about");
 
   // --- 2. פונקציות הפופאפ (popup.json) ---

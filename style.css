@@ -29,12 +29,27 @@ body {
 }
 
 .container2 {
-  margin-top: 8px;
-  margin-bottom: 25px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  margin-top: 5px; /* צמצום קל מלמעלה */
+  margin-bottom: 10px; /* צמצום משמעותי מלמטה (היה 25px) */
+  padding-top: 10px; /* הוספת פאדינג פנימי קטן במקום מרג'ין חיצוני */
+  padding-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* צל עדין יותר שתופס פחות "נפח" ויזואלי */
+  text-align: center;
 }
+
 .container2:hover {
   transform: translateY(-5px);
+}
+
+.container2 h1,
+.container2 h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.6rem; /* הקטנה קלה כדי לחסוך גובה */
+}
+
+.container2 p {
+  margin-bottom: 5px; /* צמצום המרווח בין שורות הטקסט */
 }
 
 .container-login {
@@ -361,11 +376,28 @@ footer,
   animation: fade-up 1000ms forwards;
   animation-delay: 1000ms;
 }
+.service-icon-container {
+  height: 70px; /* גובה מקסימלי לאייקון */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.service-icon-img {
+  max-height: 100%;
+  max-width: 80px; /* רוחב מקסימלי */
+  object-fit: contain; /* שומר על פרופורציות בלי להימתח */
+}
 
 @keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px); /* מתחיל נמוך יותר */
+  }
   100% {
-    bottom: 10px;
     opacity: 1;
+    transform: translateY(0); /* חוזר למקום המקורי */
   }
 }
 
@@ -488,6 +520,8 @@ footer,
     border-right-width: 4px;
     background: #fdfdfd;
     border-radius: 4px;
+    opacity: 0; /* מתחיל שקוף */
+    animation: fade-up 0.8s ease forwards;
   }
   .service-card h4 {
     font-size: 1.2rem;
