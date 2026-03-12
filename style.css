@@ -14,7 +14,6 @@ html {
 body {
   line-height: 1.4;
   color: #333333;
-  text-align: right;
   overflow-x: hidden;
 }
 
@@ -24,7 +23,7 @@ body {
   width: 60%;
   margin: auto;
   padding: 15px;
-  text-align: center;
+  text-align: justify;
   transition: 0.3s;
 }
 
@@ -33,8 +32,8 @@ body {
   margin-bottom: 10px; /* צמצום משמעותי מלמטה (היה 25px) */
   padding-top: 10px; /* הוספת פאדינג פנימי קטן במקום מרג'ין חיצוני */
   padding-bottom: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* צל עדין יותר שתופס פחות "נפח" ויזואלי */
-  text-align: center;
+  box-shadow: 0 4px 12pgx rgba(0, 0, 0, 0.05); /* צל עדין יותר שתופס פחות "נפח" ויזואלי */
+  text-align: justify;
 }
 
 .container2:hover {
@@ -343,8 +342,6 @@ button {
 .dynamic-img {
   width: 300px;
   height: 300px;
-  /* מכיוון שהתמונות כבר ריבועיות, object-fit רק מוודא שהן 
-       נכנסות למסגרת בצורה מושלמת בלי "גליצ'ים" של פיקסלים */
   object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
@@ -474,6 +471,9 @@ footer,
 }
 
 @media (max-width: 768px) {
+  .container2 {
+    padding: 6px;
+  }
   .content-row {
     flex-direction: column; /* תמונה מעל טקסט במובייל */
     text-align: right;
@@ -520,9 +520,9 @@ footer,
     font-size: 20px;
   }
   p {
-    text-align: right;
+    text-align: justify;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.5;
   }
   .header-office {
     font-size: 22px;
